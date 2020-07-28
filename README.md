@@ -13,4 +13,4 @@ python manage.py runserver
 ```
 
 三、前端展示效果
-![](http://qiniu.caizhenwei.top/demo2020-07-28.gif)
+<img src="http://qiniu.caizhenwei.top/demo2020-07-28.gif" />
