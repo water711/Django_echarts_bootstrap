@@ -13,3 +13,4 @@ python manage.py runserver
 ```
 
 三、前端展示效果
+![图片提示](http://qiniu.caizhenwei.top/demo2020-07-28.gif)
