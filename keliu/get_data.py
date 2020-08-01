@@ -8,7 +8,7 @@ import warnings
 warnings.filterwarnings("ignore")
 
 
-sqlite_file = 'sqlite:///' + BASE_DIR + '\db.sqlite3'
+sqlite_file = 'sqlite:///' + BASE_DIR + '/db.sqlite3'
 
 def read(k_date):
     '''

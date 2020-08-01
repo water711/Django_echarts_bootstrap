@@ -1,9 +1,12 @@
+import os
 import random
 import sqlite3
 from datetime import datetime, timedelta
 
+baes_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+
 def create_table():
-    connect = sqlite3.connect('../db.sqlite3')
+    connect = sqlite3.connect(baes_dir + '/db.sqlite3')
     cursor = connect.cursor()   # 获取数据库游标
 
     sql = 'CREATE TABLE "keliu"( \
@@ -20,14 +23,13 @@ def create_table():
     cursor.close()  # 关闭游标
     connect.close()  # 关闭数据库
 
-
 create_table()  #创建表
 
 start_data = '2019/01/01'
 start_data = datetime.strptime(start_data, "%Y/%m/%d")  #字符串转datatime类型
 channel_list = ['东入口','南入口','北入口','西入口','西南入口','西北入口','东北入口']
 
-connect = sqlite3.connect('../db.sqlite3')
+connect = sqlite3.connect(baes_dir + '/db.sqlite3')
 cursor = connect.cursor()   # 获取数据库游标
 sql = 'insert into keliu (channel, k_date, k_hour, in_num, out_num, k_status) values (?,?,?,?,?,?)'
 
@@ -45,5 +47,6 @@ for i in range(545):
 connect.commit()  # 提交事务
 cursor.close()  # 关闭游标
 connect.close()  # 关闭数据库
+
 
 
