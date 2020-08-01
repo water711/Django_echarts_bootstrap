@@ -24,10 +24,10 @@ python .init/create_virtual.py  #创建虚拟数据
 python manage.py runserver
 ```
 
-### 三、前端展示效果
+### 四、前端展示效果
 <img src="http://qiniu.caizhenwei.top/demo2020-07-28.gif" />
 
-### 四、可能出现的问题  
+### 五、可能出现的问题  
 1、Linxu环境下，出现No module named '_bz2'  
 ```python
 yum install bzip2-devel ，并重新编译python
