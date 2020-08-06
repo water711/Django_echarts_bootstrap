@@ -25,16 +25,19 @@ def create_table():
 
 create_table()  #创建表
 
-start_data = '2019/01/01'
-start_data = datetime.strptime(start_data, "%Y/%m/%d")  #字符串转datatime类型
-channel_list = ['东入口','南入口','北入口','西入口','西南入口','西北入口','东北入口']
-
 connect = sqlite3.connect(baes_dir + '/db.sqlite3')
 cursor = connect.cursor()   # 获取数据库游标
 sql = 'insert into keliu (channel, k_date, k_hour, in_num, out_num, k_status) values (?,?,?,?,?,?)'
 
-for i in range(545):
-    k_date = start_data + timedelta(days = i)
+now_date = datetime.now()   #当前日期
+start_date = datetime.strptime('2019-01-01','%Y-%m-%d')  #字符串转datatime类型
+day_num = now_date - start_date  #2019-01-01到今天的天数
+day_num = day_num.days  #取出总天数
+
+channel_list = ['东入口','南入口','北入口','西入口','西南入口','西北入口','东北入口']
+
+for i in range(day_num):
+    k_date = start_date + timedelta(days = i)
     k_date = str(k_date).split(" ")[0].replace('-', '/')
     for channel in channel_list:
         for k_hour in range(9,24):
