@@ -29,7 +29,10 @@ python manage.py runserver
 
 <img src="http://qiniu.caizhenwei.top/demo2020-07-28.gif" />
 
-### 五、可能出现的问题  
+### 五、微信小程序端
+[github地址：https://github.com/water711/echarts-keliu-wechat](https://github.com/water711/echarts-keliu-wechat "") 
+
+### 六、可能出现的问题  
 Linxu环境下，出现No module named '_bz2'  
 ```python
 yum install bzip2-devel ，并重新编译python
