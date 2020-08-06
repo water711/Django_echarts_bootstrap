@@ -13,7 +13,7 @@ sqlite_file = 'sqlite:///' + BASE_DIR + '/db.sqlite3'
 def read(k_date):
     '''
     该函数负责从数据库查询数据
-    :param k_date: 日期
+    :param k_date: 日期 2000/01/01
     :return: 该日期下的客流数据
     '''
     engine = create_engine(sqlite_file)
@@ -113,34 +113,6 @@ def channel(k_date):
     df = read(k_date)
     df = df.loc[:, ['channel', 'in_num', 'out_num']]
 
-    df.channel[df.channel.str.contains('1F-JK-01')] = "货梯厅出入口"
-    df.channel[df.channel.str.contains('1F-JK-04')] = "东南门出入口"
-    df.channel[df.channel.str.contains('1F-JK-05')] = "东边5.6.7客梯厅"
-    df.channel[df.channel.str.contains('1F-JK-11')] = "东中庭出入口"
-    df.channel[df.channel.str.contains('1F-JK-15')] = "北门出入口"
-    df.channel[df.channel.str.contains('1F-JK-19')] = "公寓服务台"
-    df.channel[df.channel.str.contains('1F-JK-43')] = "西边3.4客梯厅"
-    df.channel[df.channel.str.contains('1F-JK-45')] = "西南门出入口"
-    df.channel[df.channel.str.contains('1F-JK-88')] = "卜蜂西出口"
-    df.channel[df.channel.str.contains('1F-JK-89')] = "鹅咏稻香门口"
-    df.channel[df.channel.str.contains('1F-JK-90')] = "1·2货梯边走廊"
-    df.channel[df.channel.str.contains('2F-JK-18')] = "西边上下扶梯"
-    df.channel[df.channel.str.contains('B1F-JK-05')] = "南步行街步梯"
-    df.channel[df.channel.str.contains('B1F-JK-09')] = "东边5.6.7客梯厅"
-    df.channel[df.channel.str.contains('B1F-JK-16')] = "步行街至停车场"
-    df.channel[df.channel.str.contains('B1F-JK-36')] = "1.2号客梯厅"
-    df.channel[df.channel.str.contains('B1F-JK-52')] = "西北步行街扶梯"
-    df.channel[df.channel.str.contains('B1F-JK-53')] = "西北步行街步梯"
-    df.channel[df.channel.str.contains('B1F-JK-65')] = "西边进负1停车场"
-    df.channel[df.channel.str.contains('B1F-JK-92')] = "西边3.4客梯厅"
-    df.channel[df.channel.str.contains('B2F-JK-22')] = "西边3.4客梯厅"
-    df.channel[df.channel.str.contains('B3F-JK-10')] = "东边5.6.7客梯厅"
-    df.channel[df.channel.str.contains('B3F-JK-11')] = "东南边上下扶梯"
-    df.channel[df.channel.str.contains('B3F-JK--25')] = "北1.2号客梯厅"
-    df.channel[df.channel.str.contains('B3F-JK-46')] = "西边3.4客梯厅"
-    df.channel[df.channel.str.contains('B3F-JK-48')] = "卜蜂西边扶梯"
-    df.channel[df.channel.str.contains('B3F-JK-56')] = "卜蜂东南扶梯"
-
     df = df.groupby(['channel'], as_index=False).sum()
     df = df[df['in_num'] >= 300]
     df = df.sort_values(by='in_num', ascending=True)
@@ -150,9 +122,7 @@ def channel(k_date):
     return x,y,s
 
 if __name__ == '__main__':
+    # x,y,s = hour(k_date)
+    # print(x,y,s)
     pass
-    #k_date = newest_record()
-    # x,y = hour(k_date)
-    #print(x,y)
-    # file = 'sqlite:///'+ BASE_DIR + '\db.sqlite3'
-    # print(file)
+
