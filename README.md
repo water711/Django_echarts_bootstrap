@@ -32,7 +32,7 @@ python manage.py runserver
 ### 五、微信小程序端
 [github地址：https://github.com/water711/echarts-keliu-wechat](https://github.com/water711/echarts-keliu-wechat "") 
 
-<img src="http://qiniu.caizhenwei.top/wp-content/uploads/2020/07/%E6%89%8B%E6%9C%BAQQ%E8%A7%86%E9%A2%91_2020080621074100_00_01-00_00_21.gif" />
+<img src="http://qiniu.caizhenwei.top/keliu-wechat.gif" />
 
 ### 六、可能出现的问题  
 Linxu环境下，出现No module named '_bz2'  
